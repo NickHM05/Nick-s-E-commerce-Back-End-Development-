@@ -61,6 +61,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create new product
+// POST method
 router.post('/', (req, res) => {
  Product.create({
     product_name: req.body.product_name,
@@ -141,7 +142,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbProductData => {
     if (!dbProductData) {
-      rs.status(404).json({message: 'No product found with this id'});
+      rs.status(404).json({message: 'There is no product found with this id'});
       return;
     }
     res.json(dbProductData);
